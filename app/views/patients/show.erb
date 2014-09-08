@@ -3,4 +3,46 @@
   <h1> <%= full_name(@patient)%> </h1>
 
   <h2>Prescriptions</h2>
+  <%= link_to "Add Prescription", new_patient_prescription_path(@patient.id)%>
+  <div>
+   <%= flash[:notice] if flash[:notice]%>
+  </div>
+  <br/>
+  <hr/>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Medication</th>
+      <th>Dosage/Schedule</th>
+      <th>Dates</th>
+    </tr>
+    </thead>
+    <%@prescriptions.each do |prescription|%>
+    <tbody>
+    <tr>
+      <td>
+        <%=prescription.medication.name%>
+      </td>
+      <td>
+        <%=prescription.dosage%> <%=prescription.schedule%>
+      </td>
+      <td>
+        <%=prescription.start_date%>  -  <%=prescription.end_date%>
+
+      </td>
+    </tr>
+
+    </tbody>
+
+  </table>
+
+
+
+
+
+
+
+    <br/>
+  <%end%>
 </div>

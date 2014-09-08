@@ -1,0 +1,66 @@
+<div id="new-prescriptions">
+
+  <div>
+    <% if flash[:notice]%>
+      <div>
+        <%=flash[:notice] %>
+      </div>
+      <div>
+        <%@errors.each do |each|%>
+          <%=each%><br/>
+        <%end%>
+      </div>
+    <br/>
+    <%end%>
+  </div>
+
+
+
+<%=form_for [@patient, @prescription] do |f| %>
+
+    <div>
+      <%= f.label :medication_id %><br/>
+      <%= f.collection_select :medication_id, Medication.all, :id, :name, {}%>
+    </div>
+    <br/>
+
+    <div>
+      <%= f.label :dosage %><br/>
+      <%= f.text_field :dosage%>
+    </div>
+    <br/>
+
+    <div>
+      <%= f.label :schedule %><br/>
+      <%= f.text_field :schedule%>
+    </div>
+    <br/>
+
+    <div>
+      <%= f.label :start_date %><br/>
+      <%= f.date_field :start_date%>
+    </div>
+    <br/>
+
+
+    <div>
+      <%= f.label :end_date %><br/>
+      <%= f.date_field :end_date%>
+    </div>
+    <br/>
+
+
+
+
+
+
+
+
+    <div>
+      <%=f.submit%>
+    </div>
+
+<% end%>
+
+
+</div>

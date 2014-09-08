@@ -1,0 +1,39 @@
+
+<h1><%=@medication.name%></h1>
+
+<h2>Prescriptions</h2>
+
+
+  <table>
+    <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Dosage/Schedule</th>
+      <th>Dates</th>
+      <th>Prescribed by</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%@medication.prescriptions.each do |prescription|%>
+
+      <tr>
+        <td>
+          <%=prescription.patient.first_name%> <%=prescription.patient.last_name%>
+        </td>
+        <td>
+          <%=prescription.dosage%> <%=prescription.schedule%>
+        </td>
+        <td>
+          <%=prescription.start_date%>  -  <%=prescription.end_date%>
+
+        </td>
+        <td>
+          <%=prescription.user.name%>
+        </td>
+      </tr>
+
+      </tbody>
+
+      </table>
+
+<%end%>
