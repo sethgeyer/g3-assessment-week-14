@@ -4,13 +4,13 @@
 
   <h2>Prescriptions</h2>
   <%= link_to "Add Prescription", new_patient_prescription_path(@patient.id)%>
-  <div>
+  <div class="errors">
    <%= flash[:notice] if flash[:notice]%>
   </div>
   <br/>
   <hr/>
 
-  <table>
+  <table class="table">
     <thead>
     <tr>
       <th>Medication</th>

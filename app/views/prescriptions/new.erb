@@ -1,11 +1,11 @@
 <div id="new-prescriptions">
 
-  <div>
+  <div class="errors">
     <% if flash[:notice]%>
       <div>
         <%=flash[:notice] %>
       </div>
-      <div>
+      <div class="errors">
         <%@errors.each do |each|%>
           <%=each%><br/>
         <%end%>
