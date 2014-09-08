@@ -8,13 +8,12 @@ feature "Patients" do
     login(@user)
   end
 
-  scenario "User sees all patients" do
-    expect(page).to have_content(@patient.first_name, @patient.last_name)
-  end
 
-  scenario "User can link to see a patients's list of prescriptions" do
-    click_on "Some Patient"
+  scenario "User can see a selected patients's list of prescriptions" do
+    visit "/patients/#{@patient.id}"
     expect(page).to have_css("#show-patients")
+    expect(page).to have_content "Some Patient"
+    expect(page).to have_content "Prescriptions"
   end
 
 end
