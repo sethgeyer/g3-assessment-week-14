@@ -21,6 +21,8 @@
     <div>
       <%= f.label :medication_id %><br/>
       <%= f.collection_select :medication_id, Medication.all, :id, :name, {}%>
+
+      < %= f.collection_select :medication_id, Medication.all, :id, :name, {:include_blank => "please choose a medication}%>
     </div>
     <br/>
 

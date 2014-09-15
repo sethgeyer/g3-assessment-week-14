@@ -18,7 +18,7 @@ class Prescription < ActiveRecord::Base
   end
 
   def dosage_not_a_number
-    if self[:dosage] == "" || self[:dosage][0].to_i = 0
+    if self[:dosage] == "" || self[:dosage][0].to_i == 0
       errors[:dosage] << "must start with a number"
     end
   end
